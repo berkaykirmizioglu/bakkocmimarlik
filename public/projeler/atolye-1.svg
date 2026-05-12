@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="800" fill="#e6e3dc"/>
+  <!-- north light -->
+  <rect x="600" y="0" width="600" height="800" fill="#faf9f6"/>
+  <!-- window frames -->
+  <g stroke="#0a0a0a" stroke-width="2" fill="none">
+    <rect x="640" y="60" width="520" height="680"/>
+    <line x1="640" y1="300" x2="1160" y2="300"/>
+    <line x1="640" y1="540" x2="1160" y2="540"/>
+    <line x1="900" y1="60" x2="900" y2="740"/>
+  </g>
+  <!-- easel -->
+  <line x1="260" y1="700" x2="320" y2="320" stroke="#0a0a0a" stroke-width="2"/>
+  <line x1="460" y1="700" x2="400" y2="320" stroke="#0a0a0a" stroke-width="2"/>
+  <line x1="360" y1="700" x2="360" y2="320" stroke="#0a0a0a" stroke-width="2"/>
+  <rect x="240" y="380" width="240" height="160" fill="#faf9f6" stroke="#0a0a0a" stroke-width="1"/>
+  <!-- shadow -->
+  <rect y="700" width="600" height="100" fill="#8a8580" opacity="0.35"/>
+</svg>

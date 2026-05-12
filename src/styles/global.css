@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Design tokens — Berk Akkoç Tasarım & Mimarlık
+   Monokrom mimari palet + tek sıcak aksan.
+   Tek font ailesi: Inter Tight (variable).
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #2a2a2a;
+  --color-paper: #faf9f6;
+  --color-paper-soft: #f3f1eb;
+  --color-stone: #8a8580;
+  --color-stone-soft: #b8b3ac;
+  --color-line: #e6e3dc;
+  --color-accent: #a87a4b;
+
+  --font-sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+
+  --tracking-tightest: -0.04em;
+  --tracking-tighter: -0.02em;
+  --tracking-wide-soft: 0.12em;
+  --tracking-wide-strong: 0.22em;
+
+  --container-page: 1400px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Base
+   ───────────────────────────────────────────────────────────── */
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-feature-settings: "ss01", "cv11";
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Hairline divider helper */
+.hairline {
+  border-color: var(--color-line);
+}
+
+/* Eyebrow label utility */
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: var(--tracking-wide-strong);
+  text-transform: uppercase;
+  color: var(--color-stone);
+  font-weight: 500;
+}
+
+/* Display heading utility */
+.display {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tighter);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* Soft entry animation for scrolled content */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

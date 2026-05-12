@@ -1,0 +1,40 @@
+---
+interface GalleryImage {
+  src: string;
+  alt: string;
+  caption?: string;
+  span?: "full" | "half";
+}
+
+interface Props {
+  images: GalleryImage[];
+}
+
+const { images } = Astro.props;
+---
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+  {images.map((img, i) => (
+    <figure
+      class:list={[
+        "bg-paper-soft",
+        img.span === "full" ? "md:col-span-2" : "",
+      ]}
+    >
+      <div class="relative overflow-hidden aspect-[3/2]">
+        <img
+          src={img.src}
+          alt={img.alt}
+          loading={i < 2 ? "eager" : "lazy"}
+          decoding="async"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+      {img.caption && (
+        <figcaption class="text-xs text-stone mt-2">
+          {img.caption}
+        </figcaption>
+      )}
+    </figure>
+  ))}
+</section>

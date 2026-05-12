@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6e3dc"/>
+      <stop offset="1" stop-color="#cfc9bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <!-- water -->
+  <rect y="540" width="1200" height="260" fill="#8a8580" opacity="0.35"/>
+  <!-- building mass -->
+  <rect x="220" y="220" width="760" height="340" fill="#faf9f6"/>
+  <rect x="220" y="220" width="760" height="340" fill="none" stroke="#0a0a0a" stroke-width="1.5"/>
+  <!-- roof -->
+  <polygon points="220,220 600,140 980,220" fill="#0a0a0a"/>
+  <!-- windows grid -->
+  <g fill="none" stroke="#0a0a0a" stroke-width="1">
+    <rect x="280" y="280" width="80" height="120"/>
+    <rect x="400" y="280" width="80" height="120"/>
+    <rect x="520" y="280" width="80" height="120"/>
+    <rect x="640" y="280" width="80" height="120"/>
+    <rect x="760" y="280" width="80" height="120"/>
+    <rect x="880" y="280" width="60" height="120"/>
+    <line x1="280" y1="340" x2="360" y2="340"/>
+    <line x1="320" y1="280" x2="320" y2="400"/>
+  </g>
+  <!-- door -->
+  <rect x="560" y="440" width="80" height="120" fill="#0a0a0a"/>
+  <!-- ground line -->
+  <line x1="0" y1="560" x2="1200" y2="560" stroke="#0a0a0a" stroke-width="1"/>
+</svg>

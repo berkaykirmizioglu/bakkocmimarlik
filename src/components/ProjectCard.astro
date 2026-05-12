@@ -1,0 +1,62 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  cover: string;
+  coverAlt?: string;
+  year?: number | string;
+  location?: string;
+  category?: string;
+  ratio?: "portrait" | "landscape" | "square";
+  index?: number;
+}
+
+const {
+  href,
+  title,
+  cover,
+  coverAlt,
+  year,
+  location,
+  category,
+  ratio = "landscape",
+  index = 0,
+} = Astro.props;
+
+const ratioClass =
+  ratio === "portrait"
+    ? "aspect-[4/5]"
+    : ratio === "square"
+      ? "aspect-square"
+      : "aspect-[3/2]";
+---
+
+<a
+  href={href}
+  class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+>
+  <div class={`relative overflow-hidden bg-paper-soft ${ratioClass}`}>
+    <img
+      src={cover}
+      alt={coverAlt ?? `${title} — kapak görseli`}
+      loading={index < 2 ? "eager" : "lazy"}
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class="mt-4 flex items-baseline justify-between gap-4">
+    <div>
+      <h3 class="text-base md:text-lg font-medium tracking-tighter text-ink">
+        {title}
+      </h3>
+      <p class="text-sm text-stone mt-0.5">
+        {[location, year].filter(Boolean).join(" · ")}
+      </p>
+    </div>
+    {category && (
+      <span class="eyebrow shrink-0" style="font-size: 0.62rem">
+        {category}
+      </span>
+    )}
+  </div>
+</a>

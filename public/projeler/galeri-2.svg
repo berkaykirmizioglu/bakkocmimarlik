@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="800" fill="#f3f1eb"/>
+  <!-- table -->
+  <ellipse cx="600" cy="540" rx="320" ry="40" fill="#a87a4b" opacity="0.6"/>
+  <rect x="280" y="520" width="640" height="40" fill="#0a0a0a"/>
+  <!-- chairs -->
+  <g fill="#0a0a0a">
+    <rect x="320" y="560" width="60" height="120"/>
+    <rect x="430" y="560" width="60" height="120"/>
+    <rect x="710" y="560" width="60" height="120"/>
+    <rect x="820" y="560" width="60" height="120"/>
+  </g>
+  <!-- pendant -->
+  <line x1="600" y1="0" x2="600" y2="280" stroke="#0a0a0a" stroke-width="1"/>
+  <rect x="540" y="280" width="120" height="40" fill="#0a0a0a"/>
+  <!-- window -->
+  <rect x="100" y="120" width="180" height="320" fill="#fafaf7" stroke="#0a0a0a" stroke-width="1"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="800" fill="#0a0a0a"/>
+  <!-- window aperture -->
+  <rect x="200" y="120" width="800" height="560" fill="#cfc9bf"/>
+  <rect x="200" y="120" width="800" height="560" fill="none" stroke="#faf9f6" stroke-width="2"/>
+  <!-- mullions -->
+  <line x1="600" y1="120" x2="600" y2="680" stroke="#faf9f6" stroke-width="2"/>
+  <line x1="200" y1="400" x2="1000" y2="400" stroke="#faf9f6" stroke-width="2"/>
+  <!-- horizon water -->
+  <rect x="200" y="500" width="800" height="180" fill="#8a8580" opacity="0.4"/>
+</svg>

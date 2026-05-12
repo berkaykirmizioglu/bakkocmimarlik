@@ -1,0 +1,76 @@
+---
+const year = new Date().getFullYear();
+const email = "info@bakkocmimarlik.com";
+const phone = "+90 555 000 00 00";
+const social = [
+  { label: "Instagram", href: "https://instagram.com/" },
+  { label: "LinkedIn", href: "https://linkedin.com/" },
+  { label: "Behance", href: "https://behance.net/" },
+];
+---
+
+<footer class="border-t border-line mt-24 md:mt-32">
+  <div
+    class="mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20 grid grid-cols-1 md:grid-cols-12 gap-10"
+    style="max-width: var(--container-page)"
+  >
+    <div class="md:col-span-5">
+      <p class="display text-3xl md:text-4xl max-w-md">
+        Bir mekânı düşleyelim.
+      </p>
+      <a
+        href={`mailto:${email}`}
+        class="mt-6 inline-flex items-center gap-2 border-b border-ink pb-1 text-base hover:text-accent hover:border-accent transition-colors"
+      >
+        {email}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="md:col-span-3">
+      <p class="eyebrow mb-3">İletişim</p>
+      <ul class="space-y-1 text-sm">
+        <li><a href={`mailto:${email}`} class="hover:text-ink text-stone">{email}</a></li>
+        <li><a href={`tel:${phone.replace(/\s/g, "")}`} class="hover:text-ink text-stone">{phone}</a></li>
+        <li class="text-stone">İstanbul, Türkiye</li>
+      </ul>
+    </div>
+
+    <div class="md:col-span-2">
+      <p class="eyebrow mb-3">Sosyal</p>
+      <ul class="space-y-1 text-sm">
+        {social.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-ink text-stone"
+            >
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="md:col-span-2 md:text-right">
+      <p class="eyebrow mb-3">Site</p>
+      <ul class="space-y-1 text-sm">
+        <li><a href="/projeler" class="hover:text-ink text-stone">Projeler</a></li>
+        <li><a href="/hakkimda" class="hover:text-ink text-stone">Hakkımda</a></li>
+        <li><a href="/cv" class="hover:text-ink text-stone">CV</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-line">
+    <div
+      class="mx-auto px-6 md:px-10 lg:px-14 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-stone"
+      style="max-width: var(--container-page)"
+    >
+      <p>© {year} Berk Akkoç — Tasarım & Mimarlık. Tüm hakları saklıdır.</p>
+      <p class="eyebrow" style="font-size: 0.62rem">bakkocmimarlik.com</p>
+    </div>
+  </div>
+</footer>

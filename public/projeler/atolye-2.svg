@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="800" fill="#f3f1eb"/>
+  <!-- mezzanine slab -->
+  <rect x="200" y="320" width="800" height="40" fill="#0a0a0a"/>
+  <rect x="200" y="360" width="800" height="280" fill="#cfc9bf"/>
+  <!-- railing -->
+  <g stroke="#0a0a0a" stroke-width="1">
+    <line x1="220" y1="280" x2="220" y2="320"/>
+    <line x1="280" y1="280" x2="280" y2="320"/>
+    <line x1="340" y1="280" x2="340" y2="320"/>
+    <line x1="400" y1="280" x2="400" y2="320"/>
+    <line x1="460" y1="280" x2="460" y2="320"/>
+    <line x1="200" y1="280" x2="1000" y2="280"/>
+  </g>
+  <!-- bed silhouette -->
+  <rect x="600" y="180" width="320" height="80" fill="#a87a4b" opacity="0.6"/>
+  <rect x="600" y="160" width="320" height="20" fill="#0a0a0a"/>
+  <!-- stair -->
+  <g fill="#0a0a0a">
+    <rect x="980" y="320" width="120" height="14"/>
+    <rect x="980" y="380" width="120" height="14"/>
+    <rect x="980" y="440" width="120" height="14"/>
+    <rect x="980" y="500" width="120" height="14"/>
+    <rect x="980" y="560" width="120" height="14"/>
+  </g>
+</svg>
