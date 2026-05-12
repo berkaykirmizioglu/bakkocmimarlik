@@ -33,7 +33,7 @@ function isActive(href: string) {
         alt="Berk Akkoç — Tasarım & Mimarlık"
         width="201"
         height="251"
-        class="h-12 md:h-14 w-auto transition-opacity group-hover:opacity-80"
+        class="h-9 md:h-10 w-auto transition-opacity group-hover:opacity-80"
       />
     </a>
 
@@ -43,8 +43,10 @@ function isActive(href: string) {
           <a
             href={u(l.href)}
             class:list={[
-              "px-2 sm:px-3 py-2 transition-colors duration-200 hover:text-ink",
-              isActive(l.href) ? "text-ink" : "text-stone",
+              "px-2 sm:px-3 py-2 border-b transition-colors duration-200 hover:text-ink hover:border-ink",
+              isActive(l.href)
+                ? "text-ink border-ink"
+                : "text-stone border-transparent",
             ]}
             aria-current={isActive(l.href) ? "page" : undefined}
           >

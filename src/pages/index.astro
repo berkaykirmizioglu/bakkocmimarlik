@@ -26,7 +26,7 @@ const featured = projects
       <span class="italic font-light">sakin</span> mekânları.
     </h1>
     <div class="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 rise" style="animation-delay: 160ms">
-      <p class="md:col-span-6 md:col-start-7 text-stone text-sm md:text-base leading-relaxed max-w-lg">
+      <p class="md:col-span-7 md:col-start-5 text-stone text-sm md:text-base leading-relaxed max-w-xl">
         Berk Akkoç; iç mekândan kentsel ölçeğe uzanan bir tasarım pratiği yürütür.
         Her proje; ışık, malzeme ve oran üzerine yeniden kurulan bir hikâyedir.
       </p>
@@ -54,27 +54,18 @@ const featured = projects
     {featured.length === 0 ? (
       <p class="text-stone">Henüz öne çıkarılmış proje yok.</p>
     ) : (
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {featured.map((p, i) => (
-          <div
-            class:list={[
-              i === 0 ? "md:col-span-7" : "md:col-span-5",
-              i === 1 ? "md:mt-16" : "",
-              i === 2 ? "md:col-span-7 md:col-start-4" : "",
-            ]}
-          >
-            <ProjectCard
-              href={`/projeler/${p.id}`}
-              title={p.data.title}
-              cover={p.data.cover}
-              coverAlt={p.data.coverAlt}
-              year={p.data.year}
-              location={p.data.location}
-              category={p.data.category}
-              ratio={i === 1 ? "portrait" : "landscape"}
-              index={i}
-            />
-          </div>
+          <ProjectCard
+            href={`/projeler/${p.id}`}
+            title={p.data.title}
+            cover={p.data.cover}
+            coverAlt={p.data.coverAlt}
+            year={p.data.year}
+            location={p.data.location}
+            category={p.data.category}
+            index={i}
+          />
         ))}
       </div>
     )}
@@ -123,7 +114,7 @@ const featured = projects
     </h2>
     <a
       href={u("/iletisim")}
-      class="mt-8 inline-flex items-center gap-3 bg-ink text-paper px-7 py-3.5 text-sm hover:bg-ink-soft transition-colors"
+      class="mt-8 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-accent hover:border-accent transition-colors"
     >
       İletişime geç <span aria-hidden="true">→</span>
     </a>

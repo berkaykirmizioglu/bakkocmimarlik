@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bakkocmimarlik.com/sitemap-index.xml
+Sitemap: https://berkaykirmizioglu.github.io/bakkocmimarlik/sitemap-index.xml

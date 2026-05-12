@@ -2,18 +2,10 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
 const email = "info@bakkocmimarlik.com";
-const phone = "+90 555 000 00 00";
 
 const channels = [
   { label: "E-posta", value: email, href: `mailto:${email}` },
-  { label: "Telefon", value: phone, href: `tel:${phone.replace(/\s/g, "")}` },
   { label: "Konum", value: "İstanbul, Türkiye", href: null },
-];
-
-const social = [
-  { label: "Instagram", handle: "@berkakkoc", href: "https://instagram.com/" },
-  { label: "LinkedIn", handle: "Berk Akkoç", href: "https://linkedin.com/" },
-  { label: "Behance", handle: "berkakkoc", href: "https://behance.net/" },
 ];
 ---
 
@@ -59,33 +51,11 @@ const social = [
     </div>
 
     <div class="md:col-span-5">
-      <p class="eyebrow mb-5">Sosyal</p>
-      <ul class="divide-y divide-line">
-        {social.map((s) => (
-          <li class="py-5 flex items-baseline justify-between gap-6">
-            <span class="text-stone text-sm">{s.label}</span>
-            <a
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-base md:text-lg hover:text-ink"
-            >
-              {s.handle}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <p class="eyebrow mb-5">İlk mesajınız için</p>
+      <p class="text-sm md:text-base text-stone leading-relaxed max-w-md">
+        Projenin konumu, kullanım amacı ve yaklaşık brüt alanını paylaşırsanız
+        ilk görüşmeye birkaç düşünceyle gelirim. Hızla geri dönüş yapıyorum.
+      </p>
     </div>
-  </section>
-
-  <section
-    class="mx-auto px-6 md:px-10 lg:px-14 py-16 md:py-20 border-t border-line"
-    style="max-width: var(--container-page)"
-  >
-    <p class="eyebrow mb-5">Çalışma Saatleri</p>
-    <p class="display text-xl md:text-2xl lg:text-3xl max-w-2xl leading-snug">
-      Pazartesi – Cuma, <span class="text-stone">09:00 – 18:00</span>.
-      Görüşme talepleri için e-posta tercih edilir.
-    </p>
   </section>
 </BaseLayout>

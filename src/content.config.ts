@@ -11,7 +11,9 @@ const projects = defineCollection({
     status: z.enum(["Konsept", "Tasarım", "Uygulama", "Tamamlandı"]).default("Tamamlandı"),
     client: z.string().optional(),
     area: z.string().optional(),
-    cover: z.string(),
+    cover: z.string().refine((p) => p.startsWith("/"), {
+      message: "cover must start with '/' (e.g. '/projeler/foo-kapak.svg')",
+    }),
     coverAlt: z.string().optional(),
     images: z
       .array(
