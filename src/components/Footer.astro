@@ -1,4 +1,5 @@
 ---
+import { u } from "~/lib/url";
 const year = new Date().getFullYear();
 const email = "info@bakkocmimarlik.com";
 const phone = "+90 555 000 00 00";
@@ -57,9 +58,9 @@ const social = [
     <div class="md:col-span-2 md:text-right">
       <p class="eyebrow mb-3">Site</p>
       <ul class="space-y-1 text-sm">
-        <li><a href="/projeler" class="hover:text-ink text-stone">Projeler</a></li>
-        <li><a href="/hakkimda" class="hover:text-ink text-stone">Hakkımda</a></li>
-        <li><a href="/cv" class="hover:text-ink text-stone">CV</a></li>
+        <li><a href={u("/projeler")} class="hover:text-ink text-stone">Projeler</a></li>
+        <li><a href={u("/hakkimda")} class="hover:text-ink text-stone">Hakkımda</a></li>
+        <li><a href={u("/cv")} class="hover:text-ink text-stone">CV</a></li>
       </ul>
     </div>
   </div>

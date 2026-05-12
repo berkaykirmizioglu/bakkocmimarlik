@@ -1,6 +1,10 @@
 ---
+import { u } from "~/lib/url";
 const { pathname } = Astro.url;
-const isHome = pathname === "/" || pathname === "";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const stripBase = (p: string) => (base && p.startsWith(base) ? p.slice(base.length) || "/" : p);
+const currentPath = stripBase(pathname);
+const isHome = currentPath === "/" || currentPath === "";
 const links = [
   { href: "/projeler", label: "Projeler" },
   { href: "/hakkimda", label: "Hakkımda" },
@@ -9,7 +13,7 @@ const links = [
 ];
 function isActive(href: string) {
   if (href === "/") return isHome;
-  return pathname === href || pathname.startsWith(href + "/");
+  return currentPath === href || currentPath.startsWith(href + "/");
 }
 ---
 
@@ -20,12 +24,12 @@ function isActive(href: string) {
     aria-label="Ana gezinme"
   >
     <a
-      href="/"
+      href={u("/")}
       class="flex items-center group"
       aria-label="Ana sayfa — Berk Akkoç Tasarım & Mimarlık"
     >
       <img
-        src="/logo.png"
+        src={u("/logo.png")}
         alt="Berk Akkoç — Tasarım & Mimarlık"
         width="201"
         height="251"
@@ -37,7 +41,7 @@ function isActive(href: string) {
       {links.map((l) => (
         <li>
           <a
-            href={l.href}
+            href={u(l.href)}
             class:list={[
               "px-2 sm:px-3 py-2 transition-colors duration-200 hover:text-ink",
               isActive(l.href) ? "text-ink" : "text-stone",

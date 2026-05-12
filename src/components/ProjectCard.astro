@@ -1,4 +1,6 @@
 ---
+import { u } from "~/lib/url";
+
 interface Props {
   href: string;
   title: string;
@@ -32,12 +34,12 @@ const ratioClass =
 ---
 
 <a
-  href={href}
+  href={u(href)}
   class="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
 >
   <div class={`relative overflow-hidden bg-paper-soft ${ratioClass}`}>
     <img
-      src={cover}
+      src={u(cover)}
       alt={coverAlt ?? `${title} — kapak görseli`}
       loading={index < 2 ? "eager" : "lazy"}
       decoding="async"

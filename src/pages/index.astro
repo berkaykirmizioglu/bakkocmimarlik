@@ -2,6 +2,7 @@
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ProjectCard from "~/components/ProjectCard.astro";
 import { getCollection } from "astro:content";
+import { u } from "~/lib/url";
 
 const projects = await getCollection("projects");
 const featured = projects
@@ -43,7 +44,7 @@ const featured = projects
         <h2 class="display text-2xl md:text-3xl lg:text-4xl">Son projeler</h2>
       </div>
       <a
-        href="/projeler"
+        href={u("/projeler")}
         class="hidden sm:inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-accent hover:border-accent transition-colors"
       >
         Tüm projeler <span aria-hidden="true">→</span>
@@ -80,7 +81,7 @@ const featured = projects
 
     <div class="sm:hidden mt-10">
       <a
-        href="/projeler"
+        href={u("/projeler")}
         class="inline-flex items-center gap-2 text-sm border-b border-ink pb-1"
       >
         Tüm projeler <span aria-hidden="true">→</span>
@@ -101,7 +102,7 @@ const featured = projects
           birlikte düşünmektir. Her detay; yaşamı kolaylaştırmak için vardır.
         </p>
         <a
-          href="/hakkimda"
+          href={u("/hakkimda")}
           class="mt-8 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-accent hover:border-accent transition-colors"
         >
           Hakkımda <span aria-hidden="true">→</span>
@@ -121,7 +122,7 @@ const featured = projects
       birlikte düşünelim.
     </h2>
     <a
-      href="/iletisim"
+      href={u("/iletisim")}
       class="mt-8 inline-flex items-center gap-3 bg-ink text-paper px-7 py-3.5 text-sm hover:bg-ink-soft transition-colors"
     >
       İletişime geç <span aria-hidden="true">→</span>

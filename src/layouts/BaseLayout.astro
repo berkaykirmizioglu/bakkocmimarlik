@@ -2,6 +2,7 @@
 import "~/styles/global.css";
 import Nav from "~/components/Nav.astro";
 import Footer from "~/components/Footer.astro";
+import { u } from "~/lib/url";
 
 interface Props {
   title?: string;
@@ -21,8 +22,10 @@ const fullTitle = title
   ? `${title} — Berk Akkoç Tasarım & Mimarlık`
   : "Berk Akkoç — Tasarım & Mimarlık";
 
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://bakkocmimarlik.com").toString();
-const ogImage = new URL(image, Astro.site ?? "https://bakkocmimarlik.com").toString();
+const siteUrl = Astro.site ?? new URL("https://berkaykirmizioglu.github.io");
+// Astro 5+ already includes `base` in `Astro.url.pathname`; do not double-prefix.
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = new URL(u(image), siteUrl).toString();
 ---
 
 <!doctype html>
@@ -50,8 +53,8 @@ const ogImage = new URL(image, Astro.site ?? "https://bakkocmimarlik.com").toStr
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/svg+xml" href={u("/favicon.svg")} />
+    <link rel="alternate icon" type="image/png" href={u("/logo.png")} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,7 +68,7 @@ const ogImage = new URL(image, Astro.site ?? "https://bakkocmimarlik.com").toStr
       "@type": "Person",
       name: "Berk Akkoç",
       jobTitle: "Mimar",
-      url: "https://bakkocmimarlik.com",
+      url: siteUrl.toString(),
       sameAs: [],
       worksFor: { "@type": "Organization", name: "Berk Akkoç Tasarım & Mimarlık" },
     })} />

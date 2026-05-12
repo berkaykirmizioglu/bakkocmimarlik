@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
+import { u } from "~/lib/url";
 ---
 
 <BaseLayout title="Sayfa bulunamadı" noindex>
@@ -12,7 +13,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
       Bu mekân<br />henüz inşa edilmedi.
     </h1>
     <a
-      href="/"
+      href={u("/")}
       class="mt-8 inline-flex items-center gap-2 border-b border-ink pb-1 hover:text-accent hover:border-accent transition-colors text-sm"
     >
       Ana sayfaya dön <span aria-hidden="true">→</span>
