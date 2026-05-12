@@ -40,6 +40,7 @@ const categories = ["Tümü", ...Array.from(new Set(projects.map((p) => p.data.c
           <button
             type="button"
             data-filter={cat}
+            aria-pressed={i === 0 ? "true" : "false"}
             class:list={[
               "py-1 transition-colors hover:text-ink",
               i === 0 ? "text-ink border-b border-ink" : "text-stone",
@@ -79,25 +80,33 @@ const categories = ["Tümü", ...Array.from(new Set(projects.map((p) => p.data.c
   </section>
 
   <script>
-    const buttons = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
-    const items = document.querySelectorAll<HTMLElement>("[data-category]");
+    function wireFilters() {
+      const buttons = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
+      const items = document.querySelectorAll<HTMLElement>("[data-category]");
+      if (!buttons.length) return;
 
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const filter = btn.dataset.filter ?? "Tümü";
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.dataset.filter ?? "Tümü";
 
-        buttons.forEach((b) => {
-          b.classList.remove("text-ink", "border-b", "border-ink");
-          b.classList.add("text-stone");
-        });
-        btn.classList.remove("text-stone");
-        btn.classList.add("text-ink", "border-b", "border-ink");
+          buttons.forEach((b) => {
+            b.classList.remove("text-ink", "border-b", "border-ink");
+            b.classList.add("text-stone");
+            b.setAttribute("aria-pressed", "false");
+          });
+          btn.classList.remove("text-stone");
+          btn.classList.add("text-ink", "border-b", "border-ink");
+          btn.setAttribute("aria-pressed", "true");
 
-        items.forEach((item) => {
-          const match = filter === "Tümü" || item.dataset.category === filter;
-          item.style.display = match ? "" : "none";
+          items.forEach((item) => {
+            const match = filter === "Tümü" || item.dataset.category === filter;
+            item.hidden = !match;
+          });
         });
       });
-    });
+    }
+
+    wireFilters();
+    document.addEventListener("astro:page-load", wireFilters);
   </script>
 </BaseLayout>

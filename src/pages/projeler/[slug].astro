@@ -112,7 +112,7 @@ const next = all[(currentIndex + 1) % all.length];
   )}
 
   <!-- ─── NEXT PROJECT ───────────────────────────────────── -->
-  {next && next.id !== project.id && (
+  {all.length > 1 && (
     <section class="border-t border-line">
       <a
         href={`/projeler/${next.id}`}
@@ -127,53 +127,3 @@ const next = all[(currentIndex + 1) % all.length];
     </section>
   )}
 </BaseLayout>
-
-<style is:global>
-  .prose-tr {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: var(--color-ink-soft);
-  }
-  .prose-tr p {
-    margin-block: 1.1em;
-  }
-  .prose-tr h2 {
-    font-family: var(--font-display);
-    letter-spacing: var(--tracking-tighter);
-    font-weight: 300;
-    font-size: 1.75rem;
-    margin-top: 2.5em;
-    margin-bottom: 0.6em;
-    color: var(--color-ink);
-  }
-  .prose-tr h3 {
-    font-weight: 500;
-    font-size: 1.15rem;
-    margin-top: 2em;
-    margin-bottom: 0.4em;
-    color: var(--color-ink);
-  }
-  .prose-tr blockquote {
-    border-left: 2px solid var(--color-ink);
-    padding-left: 1.25rem;
-    margin: 2em 0;
-    font-style: italic;
-    color: var(--color-ink);
-  }
-  .prose-tr a {
-    color: var(--color-ink);
-    border-bottom: 1px solid var(--color-line);
-    transition: border-color 0.2s;
-  }
-  .prose-tr a:hover {
-    border-bottom-color: var(--color-ink);
-  }
-  .prose-tr ul,
-  .prose-tr ol {
-    padding-left: 1.25rem;
-    margin-block: 1.1em;
-  }
-  .prose-tr li {
-    margin-block: 0.35em;
-  }
-</style>

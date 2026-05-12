@@ -10,10 +10,10 @@
   --color-ink-soft: #2a2a2a;
   --color-paper: #faf9f6;
   --color-paper-soft: #f3f1eb;
-  --color-stone: #8a8580;
-  --color-stone-soft: #b8b3ac;
-  --color-line: #e6e3dc;
-  --color-accent: #a87a4b;
+  --color-stone: #5f5b56;        /* ~7.4:1 on paper — AA body copy safe */
+  --color-stone-soft: #8a8580;   /* large/decorative only */
+  --color-line: #d8d4cb;
+  --color-accent: #8f6336;       /* darker for AA on paper */
 
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -56,10 +56,10 @@ body {
   border-color: var(--color-line);
 }
 
-/* Eyebrow label utility */
+/* Eyebrow label utility — minimum legible small-caps size */
 .eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: var(--tracking-wide-strong);
+  font-size: 0.78rem;
+  letter-spacing: var(--tracking-wide-soft);
   text-transform: uppercase;
   color: var(--color-stone);
   font-weight: 500;
@@ -81,6 +81,58 @@ body {
 
 .rise {
   animation: rise 0.7s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Long-form body copy (rendered Markdown of project detail pages)
+   Lives globally so <Content /> children inherit it.
+   ───────────────────────────────────────────────────────────── */
+.prose-tr {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+}
+.prose-tr p {
+  margin-block: 1.1em;
+}
+.prose-tr h2 {
+  font-family: var(--font-display);
+  letter-spacing: var(--tracking-tighter);
+  font-weight: 300;
+  font-size: 1.75rem;
+  margin-top: 2.5em;
+  margin-bottom: 0.6em;
+  color: var(--color-ink);
+}
+.prose-tr h3 {
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin-top: 2em;
+  margin-bottom: 0.4em;
+  color: var(--color-ink);
+}
+.prose-tr blockquote {
+  border-left: 2px solid var(--color-ink);
+  padding-left: 1.25rem;
+  margin: 2em 0;
+  font-style: italic;
+  color: var(--color-ink);
+}
+.prose-tr a {
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-line);
+  transition: border-color 0.2s;
+}
+.prose-tr a:hover {
+  border-bottom-color: var(--color-ink);
+}
+.prose-tr ul,
+.prose-tr ol {
+  padding-left: 1.25rem;
+  margin-block: 1.1em;
+}
+.prose-tr li {
+  margin-block: 0.35em;
 }
 
 /* Reduced motion */

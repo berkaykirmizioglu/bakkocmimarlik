@@ -37,13 +37,14 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
       </div>
 
       <aside class="md:col-span-5 order-1 md:order-2">
-        <div class="aspect-[4/5] bg-paper-soft border border-line overflow-hidden">
+        <div class="aspect-[4/5] bg-paper-soft border border-line overflow-hidden" role="img" aria-label="Portre fotoğrafı yakında">
           <svg viewBox="0 0 400 500" class="h-full w-full" aria-hidden="true">
             <rect width="400" height="500" fill="#f3f1eb" />
-            <text x="200" y="260" text-anchor="middle" fill="#b8b3ac" font-size="14" letter-spacing="3" font-family="sans-serif">PORTRE</text>
+            <circle cx="200" cy="200" r="60" fill="none" stroke="#8a8580" stroke-width="1.5"/>
+            <path d="M120 380 Q200 300 280 380" fill="none" stroke="#8a8580" stroke-width="1.5"/>
           </svg>
         </div>
-        <p class="eyebrow mt-3" style="font-size: 0.62rem">Portre placeholder</p>
+        <p class="eyebrow mt-3">Portre yakında</p>
       </aside>
     </div>
   </section>
