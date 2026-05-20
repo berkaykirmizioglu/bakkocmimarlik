@@ -20,7 +20,7 @@ const featured = projects
     class="mx-auto px-6 md:px-10 lg:px-14 pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-24"
     style="max-width: var(--container-page)"
   >
-    <p class="eyebrow mb-6 rise">Tasarım & Mimarlık · İstanbul</p>
+    <p class="eyebrow mb-6 rise">Tasarım & Mimarlık · Şarköy</p>
     <h1 class="display text-[clamp(1.875rem,5.5vw,3.75rem)] max-w-3xl rise" style="animation-delay: 80ms">
       Sade hatların<br />
       <span class="italic font-light">sakin</span> mekânları.
@@ -52,7 +52,7 @@ const featured = projects
     </div>
 
     {featured.length === 0 ? (
-      <p class="text-stone">Henüz öne çıkarılmış proje yok.</p>
+      <p class="text-stone text-sm md:text-base">Projeler yakında eklenecek.</p>
     ) : (
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {featured.map((p, i) => (

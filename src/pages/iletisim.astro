@@ -1,11 +1,19 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
-const email = "info@bakkocmimarlik.com";
+const email = "b.akkocmimarlik@gmail.com";
+const phoneDisplay = "+90 544 480 59 59";
+const phoneIntl = "905444805959";
+const address = "İstiklal Mah. Ahmet Doğan Küçük Sk. No:5/A Şarköy / Tekirdağ";
+const mapsUrl =
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent(address);
 
 const channels = [
   { label: "E-posta", value: email, href: `mailto:${email}` },
-  { label: "Konum", value: "İstanbul, Türkiye", href: null },
+  { label: "Telefon", value: phoneDisplay, href: `tel:+${phoneIntl}` },
+  { label: "WhatsApp", value: phoneDisplay, href: `https://wa.me/${phoneIntl}` },
+  { label: "Adres", value: address, href: mapsUrl },
 ];
 ---
 
@@ -39,11 +47,18 @@ const channels = [
       <ul class="divide-y divide-line">
         {channels.map((c) => (
           <li class="py-5 flex items-baseline justify-between gap-6">
-            <span class="text-stone text-sm">{c.label}</span>
+            <span class="text-stone text-sm shrink-0">{c.label}</span>
             {c.href ? (
-              <a href={c.href} class="text-base md:text-lg hover:text-ink">{c.value}</a>
+              <a
+                href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                class="text-base md:text-lg text-right hover:text-ink"
+              >
+                {c.value}
+              </a>
             ) : (
-              <span class="text-base md:text-lg">{c.value}</span>
+              <span class="text-base md:text-lg text-right">{c.value}</span>
             )}
           </li>
         ))}
