@@ -6,6 +6,7 @@ const stripBase = (p: string) => (base && p.startsWith(base) ? p.slice(base.leng
 const currentPath = stripBase(pathname);
 const isHome = currentPath === "/" || currentPath === "";
 const links = [
+  { href: "/", label: "Anasayfa" },
   { href: "/projeler", label: "Projeler" },
   { href: "/hakkimda", label: "Hakkımızda" },
   { href: "/hizmetler", label: "Hizmetlerimiz" },
