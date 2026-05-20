@@ -1,0 +1,61 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import { u } from "~/lib/url";
+
+const services = [
+  "Mimari Tasarım, Plan, Proje",
+  "Yapı Ruhsatlandırma",
+  "Taahhüt",
+  "3D Modelleme ve Görselleştirme",
+  "Şantiye Şefliği ve Yönetimi",
+  "Uygulama ve Tadilat",
+  "Anahtar Teslim İnşaat",
+];
+---
+
+<BaseLayout
+  title="Hizmetlerimiz"
+  description="Berk Akkoç Tasarım & Mimarlık — mimari tasarım, ruhsatlandırma, 3D görselleştirme, şantiye yönetimi ve anahtar teslim inşaat hizmetleri."
+>
+  <section
+    class="mx-auto px-6 md:px-10 lg:px-14 pt-14 md:pt-20 pb-10"
+    style="max-width: var(--container-page)"
+  >
+    <p class="eyebrow mb-5">Hizmetlerimiz</p>
+    <h1 class="display text-3xl md:text-5xl lg:text-6xl max-w-3xl">
+      Mimarlık<br />Hizmetleri
+    </h1>
+    <p class="mt-6 text-stone max-w-xl text-sm md:text-base leading-relaxed">
+      Tasarımdan ruhsata, uygulamadan anahtar teslime; bir projeyi baştan sona
+      tek elden yürütüyoruz.
+    </p>
+  </section>
+
+  <section
+    class="mx-auto px-6 md:px-10 lg:px-14 pb-24 md:pb-32 border-t border-line pt-10 md:pt-14"
+    style="max-width: var(--container-page)"
+  >
+    <ol class="divide-y divide-line">
+      {services.map((service, i) => (
+        <li class="py-6 flex items-baseline gap-6">
+          <span class="display text-stone text-lg md:text-xl w-10 shrink-0">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <span class="text-lg md:text-2xl">{service}</span>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-14 md:mt-20 border-t border-line pt-10">
+      <p class="display text-xl md:text-2xl lg:text-3xl max-w-2xl">
+        Projenizi konuşalım.
+      </p>
+      <a
+        href={u("/iletisim")}
+        class="mt-6 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-accent hover:border-accent transition-colors"
+      >
+        İletişime geç <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
