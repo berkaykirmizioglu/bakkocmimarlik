@@ -17,7 +17,7 @@ function isActive(href: string) {
 }
 ---
 
-<header class="sticky top-0 z-50 bg-paper/85 backdrop-blur-md border-b border-line">
+<header class="sticky top-0 z-50 bg-paper/85 backdrop-blur-md border-b border-line" data-nav>
   <nav
     class="mx-auto flex items-center justify-between px-6 md:px-10 lg:px-14 py-4"
     style="max-width: var(--container-page)"
@@ -37,13 +37,14 @@ function isActive(href: string) {
       />
     </a>
 
-    <ul class="flex items-center gap-1 sm:gap-2 md:gap-4 text-sm">
+    <!-- Masaüstü menü -->
+    <ul class="hidden md:flex items-center gap-2 md:gap-4 text-sm">
       {links.map((l) => (
         <li>
           <a
             href={u(l.href)}
             class:list={[
-              "px-2 sm:px-3 py-2 border-b transition-colors duration-200 hover:text-ink hover:border-ink",
+              "px-3 py-2 border-b transition-colors duration-200 hover:text-ink hover:border-ink",
               isActive(l.href)
                 ? "text-ink border-ink"
                 : "text-stone border-transparent",
@@ -55,5 +56,83 @@ function isActive(href: string) {
         </li>
       ))}
     </ul>
+
+    <!-- Mobil hamburger butonu -->
+    <button
+      type="button"
+      class="md:hidden inline-flex items-center justify-center -mr-2 p-2 text-ink"
+      aria-label="Menü"
+      aria-expanded="false"
+      aria-controls="mobil-menu"
+      data-nav-toggle
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="block" data-icon-open>
+        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="hidden" data-icon-close>
+        <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobil açılır panel -->
+  <div id="mobil-menu" class="md:hidden hidden border-t border-line bg-paper" data-nav-panel>
+    <ul
+      class="mx-auto px-6 py-2 flex flex-col"
+      style="max-width: var(--container-page)"
+    >
+      {links.map((l) => (
+        <li>
+          <a
+            href={u(l.href)}
+            class:list={[
+              "block py-3.5 text-base border-b border-line/60 transition-colors hover:text-ink",
+              isActive(l.href) ? "text-ink font-medium" : "text-stone",
+            ]}
+            aria-current={isActive(l.href) ? "page" : undefined}
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-nav]");
+  if (header) {
+    const toggle = header.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+    const panel = header.querySelector<HTMLElement>("[data-nav-panel]");
+    const iconOpen = header.querySelector<SVGElement>("[data-icon-open]");
+    const iconClose = header.querySelector<SVGElement>("[data-icon-close]");
+
+    const setOpen = (open: boolean) => {
+      if (!toggle || !panel) return;
+      toggle.setAttribute("aria-expanded", String(open));
+      panel.classList.toggle("hidden", !open);
+      iconOpen?.classList.toggle("hidden", open);
+      iconClose?.classList.toggle("hidden", !open);
+    };
+
+    toggle?.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") === "true";
+      setOpen(!open);
+    });
+
+    // Link tıklayınca kapat
+    panel?.querySelectorAll("a").forEach((a) =>
+      a.addEventListener("click", () => setOpen(false)),
+    );
+
+    // Escape ile kapat
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    // Masaüstüne geçişte sıfırla
+    window.matchMedia("(min-width: 768px)").addEventListener("change", (e) => {
+      if (e.matches) setOpen(false);
+    });
+  }
+</script>
